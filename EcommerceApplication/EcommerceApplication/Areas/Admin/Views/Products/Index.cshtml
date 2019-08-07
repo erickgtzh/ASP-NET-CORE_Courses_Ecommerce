@@ -1,0 +1,105 @@
+﻿@model IEnumerable<EcommerceApplication.Models.Product>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Admin | Cursos";
+}
+<!-- Page Content -->
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/sidebar-nav.min.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/default.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="~/lib/css/popuo-box.css" rel="stylesheet" />
+    <link href="~/lib/css/style.css" rel="stylesheet" />
+
+
+    
+    @*<script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-2.1.4.min.js"></script>
+    <script src="~/js/sidebar-nav.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/dist/js/npm.js"></script>*@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box">
+            <h3 class="box-title">Cursos</h3>
+            <a asp-area="Admin" asp-controller="Products" asp-action="Create" class="btn btn-success btn-addnew"><span class="textito btn btn-label"><i class="fa fa-check"></i></span>Agregar nuevo curso</a>
+        </div>
+    </div>
+</div>
+
+<!-- .row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Lista de cursos</h3>
+
+                        @if (TempData["result"] != null)
+                        {
+                            <div class="alert @TempData["result"]">
+                                <strong class="text-success">@TempData["result"]</strong>
+                            </div>
+                        }
+                        <div class="table-responsive">
+                            <table class="table product-overview">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre del curso</th>
+                                        <th>Categoría</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var prod in Model)
+                                    {
+                                        <tr>
+                                            <td>@prod.ProductName</td>
+                                            <td>@prod.Categories.CategoryName</td>
+                                            <td>
+                                                @if (prod.IsAvailable == true)
+                                                {
+                                                    <span class="label label-success font-weight-100">Active</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="label label-danger font-weight-100">Deactive</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a asp-area="Admin" asp-controller="Products" asp-action="Update" asp-route-id="@prod.ProductId" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-edit"></i></a>
+                                                <a asp-area="Admin" asp-controller="Products" asp-action="Delete" asp-route-id="@prod.ProductId" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="glyphicon glyphicon-trash"></i></a>
+                                            </td>
+
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+<!-- /#page-wrapper -->
