@@ -1,0 +1,28 @@
+﻿<nav class="navbar navbar-default">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <h1>
+            <a class="navbar-brand" href=@Url.Action("Index","Home")><span>ed</span>UP</a>
+        </h1>
+    </div><!--/navbar-->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav nav-tabs">
+            <li class="active"><a href="#home" class="scroll">Inicio</a></li>
+            <li><a href="#about" class="scroll">¿Quiénes somos?</a></li>
+            <li><a href="#team" class="scroll">Equipo</a></li>
+            <li><a href="#services" class="scroll">servicios</a></li>
+            <li><a href="#gallery" class="scroll">galería</a></li>
+            <li><a href="#contact" class="scroll">contáctanos</a></li>
+            <li><a href=@Url.Action("Index","Product")>Cursos</a></li>
+            <li><a href=@Url.Action("Index","Card")>Carrito</a></li>
+            <li>@await Html.PartialAsync("AdminPartials/_TopPartialLoginMenu")</li>
+        </ul>
+    </div><!--/nav-collpase-->
+</nav><!--/nav-->

@@ -1,0 +1,66 @@
+﻿@model EcommerceApplication.Models.Product
+@{
+    ViewData["Title"] = "Detalles del curso";
+    Layout = "_FrontendLayout";
+}
+
+<div class="container-fluid">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="white-box">
+                <div class="">
+                    <h2 class="m-b-0 m-t-0">@Model.ProductName</h2><hr>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="white-box text-center"> <img src='~/uploads/@Model.ProductImagePath'> </div>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-6">
+                            <h4 class="box-title m-t-40">Descripción del curso</h4>
+                            <p>@Model.Details</p>
+                            <h2 class="m-t-40">$@Model.UnitPrice <small class="text-success">(82% descuento)</small></h2>
+
+                            <form asp-controller="Card" asp-action="Add" asp-route-id="@Model.ProductId" method="post">
+                                <input type="hidden" for="id" name="id" value="@Model.ProductId" />
+                                <input class="btn btn-danger btn-rounded" type="submit" name="name" value="Quiero este curso!" />
+
+                            </form>
+
+                            <h3 class="box-title m-t-40">Se recomienda saber:</h3>
+                            <ul class="list-icons">
+                                <li><i class="fa fa-check text-success"></i>Nociones de C#</li>
+                                <li><i class="fa fa-check text-success"></i>Nociones de Boostrap</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h3 class="box-title m-t-40">Lecciones (Proximamente) </h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td width="390">Lección 1</td>
+                                            <td> Iniciando </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Lección 2</td>
+                                            <td> Instalación </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Lección 3</td>
+                                            <td> Desarrollo del curso </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Lección 4</td>
+                                            <td> Conclusiones del curso </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--row -->
+</div>

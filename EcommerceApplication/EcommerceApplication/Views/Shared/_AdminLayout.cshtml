@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+<link href="~/css/sidebar-nav.min.css" rel="stylesheet" />
+<link href="~/css/animate.css" rel="stylesheet" />
+<link href="~/css/default.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+
+
+<link href="~/css/font-awesome.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<link href="~/lib/css/popuo-box.css" rel="stylesheet" />
+<link href="~/lib/css/style.css" rel="stylesheet" />
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/sidebar-nav.min.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/default.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body class="fix-header fix-sidebar">
+    <div id="wrapper">
+        @Html.Partial("AdminPartials/_TopMenu")
+        @Html.Partial("AdminPartials/_Sidebar")
+        <div id="page-wrapper" style="min-height:600px">
+            <div class="container-fluid">
+                @RenderBody()
+                <hr />
+                @Html.Partial("AdminPartials/_FooterMenu")
+            </div>
+        </div>
+    </div>
+
+    @RenderSection("scripts", required: false)
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/sidebar-nav.min.js"></script>
+    <script src="~/js/custom.js"></script>
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/sidebar-nav.min.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/default.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="~/lib/css/popuo-box.css" rel="stylesheet" />
+    <link href="~/lib/css/style.css" rel="stylesheet" />
+
+
+
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-2.1.4.min.js"></script>
+    <script src="~/js/sidebar-nav.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/dist/js/npm.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@model EcommerceApplication.ViewModels.Card.CardIndexVM
+@{
+    ViewData["Title"] = "Carrito";
+    Layout = "_FrontendLayout";
+}
+
+<div class="container-fluid">
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-md-9 col-lg-9 col-sm-7">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> Tu carrito: @Model.CardProductVMList.Sum(p => p.Quantity) </div>
+                    <div class="panel-wrapper collapse in" aria-expanded="true">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table product-overview">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var cartitem in Model.CardProductVMList)
+                                        {
+                                        <tr>
+                                            <td>@cartitem.ProductName</td>
+                                            <td>$ @cartitem.Price</td>
+                                            <td>@cartitem.Quantity</td>
+                                            <td>$ @cartitem.ProductTotal</td>
+                                        </tr>
+                                        }
+
+                                    </tbody>
+
+                                </table>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-5">
+                <div class="white-box">
+                    <h3 class="box-title">Lo que llevas:</h3>
+                    <hr> <small>Precio total:</small>
+                    <h2>$ @Model.CardTotalPrice</h2>
+
+                    <hr>
+                    <div>
+                        <form asp-controller="Home" asp-action="Index">
+                            <button class="btn btn-default btn-block ">Continuar comprando</button>
+                        </form>
+                    </div>
+                    <div>
+                        <form asp-action="Error">
+                            <p>Aún no es válida esta opción:</p>
+                            <button class="btn btn-success btn-block ">Pagar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
